@@ -27,8 +27,8 @@ class OrderShiping extends Mailable
      */
     public function build()
     {
+
         return $this ->from('ahmed@gamil.com')
-        ->to('stylehavt@mail.com')
         ->view('email.reminder');
     }
 }

@@ -31,12 +31,9 @@ class EmailSent extends Command
     {
         $users = User::whereYear('reminder', '=' , date('Y'))->whereMonth('reminder', '=', date('m'))->whereDay('reminder', '=', date('d'))->get();
 
-    foreach($users as $user) {
+    foreach($users as $user)
 
-        // Send the email to user
-        Mail::send(new OrderShiping());
-
-    }
+        Mail::to($user->email)->send(new OrderShiping);
 
     $this->info('Birthday messages sent successfully!');
     }
